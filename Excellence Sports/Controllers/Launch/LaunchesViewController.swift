@@ -52,7 +52,6 @@ class LaunchesViewController: UIViewController {
                     Utility.openUrl(url: url)
                     self.initialLoad()
                 }
-                
             }
             else{
                 self.initialLoad()
