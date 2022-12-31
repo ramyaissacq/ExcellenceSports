@@ -200,13 +200,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-xE-KGW">
-                                                <rect key="frame" x="58" y="10" width="326" height="24"/>
+                                                <rect key="frame" x="58" y="10" width="326" height="23.5"/>
                                                 <fontDescription key="fontDescription" name="Rubik-SemiBold" family="Rubik" pointSize="20"/>
                                                 <color key="textColor" name="gradient2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most valued players in the league" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytH-Iv-g4d">
-                                                <rect key="frame" x="58" y="42" width="326" height="17"/>
+                                                <rect key="frame" x="58" y="41.5" width="326" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -235,17 +235,44 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54z-3C-WOf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5L-kY-crT" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="20" y="298" width="374" height="200"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="kSx-kK-dmx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loader"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="J5L-kY-crT" firstAttribute="leading" secondItem="54z-3C-WOf" secondAttribute="leading" constant="20" id="HOY-rC-zHC"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5L-kY-crT" secondAttribute="trailing" constant="20" id="RNK-gF-fDk"/>
+                                    <constraint firstItem="J5L-kY-crT" firstAttribute="centerY" secondItem="54z-3C-WOf" secondAttribute="centerY" constant="-50" id="YYo-wY-gwp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1is-u3-xeT"/>
                         <color key="backgroundColor" name="Violet1"/>
                         <constraints>
+                            <constraint firstItem="54z-3C-WOf" firstAttribute="trailing" secondItem="1is-u3-xeT" secondAttribute="trailing" id="29p-Hn-b5W"/>
                             <constraint firstItem="1is-u3-xeT" firstAttribute="bottom" secondItem="wa3-uD-huc" secondAttribute="bottom" constant="15" id="9gy-2G-s49"/>
                             <constraint firstItem="wa3-uD-huc" firstAttribute="top" secondItem="1is-u3-xeT" secondAttribute="top" constant="15" id="feG-CF-wfJ"/>
+                            <constraint firstItem="54z-3C-WOf" firstAttribute="leading" secondItem="1is-u3-xeT" secondAttribute="leading" id="fgX-AF-sRt"/>
                             <constraint firstItem="1is-u3-xeT" firstAttribute="trailing" secondItem="wa3-uD-huc" secondAttribute="trailing" constant="15" id="grH-ny-nPT"/>
                             <constraint firstItem="wa3-uD-huc" firstAttribute="leading" secondItem="1is-u3-xeT" secondAttribute="leading" constant="15" id="hHi-aS-mjU"/>
+                            <constraint firstAttribute="bottom" secondItem="54z-3C-WOf" secondAttribute="bottom" id="kCJ-m9-Z2x"/>
+                            <constraint firstItem="54z-3C-WOf" firstAttribute="top" secondItem="qit-cL-cDF" secondAttribute="top" id="r9K-Q6-Ded"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="animationView" destination="J5L-kY-crT" id="v2P-Wf-3N6"/>
+                        <outlet property="emptyView" destination="54z-3C-WOf" id="Lkz-MZ-0ge"/>
                         <outlet property="imgLeague" destination="1NR-2p-qAX" id="cj5-c8-c0K"/>
                         <outlet property="lblLeague" destination="Pi0-xE-KGW" id="JJe-vb-CJM"/>
                         <outlet property="searchBar" destination="7At-Og-csJ" id="SUc-PY-7v5"/>

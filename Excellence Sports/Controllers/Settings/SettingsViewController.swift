@@ -9,8 +9,8 @@ import UIKit
 import MessageUI
 
 class SettingsViewController: BaseViewController {
-
     @IBOutlet weak var tableView: UITableView!
+    
     var menus = ["Language".localized,"Privacy Policy".localized,"Share App".localized,"Feedback".localized,"Rate Us".localized]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SettingsViewController: BaseViewController {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self
-            mail.setToRecipients(["winye.churrow@gmail.com"])
+            mail.setToRecipients(["juicey.dance@gmail.com"])
             //mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
 
             present(mail, animated: true)
@@ -67,7 +67,7 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
             openVC(storyBoard: "Main", identifier: "LanguageViewController")
         case 1:
             
-            Utility.openUrl(url: URL(string: "")!)
+            Utility.openUrl(url: URL(string: "https://excellencesports4.wordpress.com/privacy-policy/")!)
             //ScorePro
         case 2:
             Utility.shareAction(text: "Install Excellence Sports from apple appstore", url: URL(string: ""), image: UIImage(named: "launch"), vc: self.parent!)
@@ -76,7 +76,7 @@ extension SettingsViewController:UITableViewDelegate,UITableViewDataSource{
             sendEmail()
             
         case 4:
-            Utility.rateApp(id: "")
+            Utility.rateApp(id: "1662072665")
             
             
         default:

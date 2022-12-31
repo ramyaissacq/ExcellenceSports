@@ -5,7 +5,9 @@
 //  Created by Remya on 12/26/22.
 //
 
+
 import UIKit
+import Lottie
 
 class LeagueDetailsViewController: BaseViewController {
     
@@ -17,6 +19,10 @@ class LeagueDetailsViewController: BaseViewController {
     
     @IBOutlet weak var imgLeague: UIImageView!
     
+    @IBOutlet weak var emptyView: UIView!
+    
+    @IBOutlet weak var animationView: AnimationView!
+    
     //Variables
     
     var leagueID:Int?
@@ -26,7 +32,6 @@ class LeagueDetailsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
-        
     }
     
     func initialSettings(){
@@ -36,9 +41,17 @@ class LeagueDetailsViewController: BaseViewController {
         searchBar.searchTextField.backgroundColor = .white
         searchBar.searchTextField.textColor = .black
         searchBar.setImage(UIImage(named: "search"), for: .search, state: .normal)
+        configureLottieAnimation()
         lblLeague.text = leagueName
         viewModel.delegate = self
         viewModel.getLeagueDetails(id: leagueID!, subID: 0, grpID: 0)
+    }
+    
+    func configureLottieAnimation(){
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
+        animationView.play()
     }
    
 }
@@ -58,6 +71,15 @@ extension LeagueDetailsViewController:LeagueDetailsViewModelDelegate{
             doSearch(searchText: searchBar.text ?? "")
         }
         
+        if viewModel.teamInfo.count > 0{
+            self.emptyView.isHidden = true
+            animationView.stop()
+        }
+        else{
+            self.emptyView.isHidden = false
+            animationView.play()
+        }
+      
     }
   
 }
