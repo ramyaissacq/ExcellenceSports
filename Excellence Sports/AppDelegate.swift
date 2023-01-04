@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MOLHResetable {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if AppPreferences.getLaunchDate().count == 0{
-            AppPreferences.setLaunchDate(date: "31-12-2022")
+            AppPreferences.setLaunchDate(date: "4-01-2023")
         }
         IQKeyboardManager.shared.enable = true
         MOLH.shared.activate(true)

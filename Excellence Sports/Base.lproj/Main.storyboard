@@ -84,21 +84,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCt-F0-0lJ" customClass="Gradient" customModule="Excellence_Sports" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCt-F0-0lJ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Here" translatesAutoresizingMaskIntoConstraints="NO" id="bHy-es-KBl">
-                                        <rect key="frame" x="20" y="96" width="374" height="235.5"/>
+                                        <rect key="frame" x="20" y="96" width="374" height="51"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="4H8-Dw-tGR" id="2Xw-Dv-ZuN"/>
                                         </connections>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="YX1-AP-IMr">
-                                        <rect key="frame" x="20" y="351.5" width="374" height="495"/>
+                                        <rect key="frame" x="15" y="167" width="384" height="679.5"/>
                                         <subviews>
                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cis-NQ-yhO" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="130"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="130"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="130" id="1dP-ft-e5Z"/>
@@ -110,38 +110,37 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leagues" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xl-uW-vE2">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Medium" family="Rubik" pointSize="26"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="El2-wr-h64">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="495"/>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="g8A-lO-JrR">
+                                                <rect key="frame" x="0.0" y="0.0" width="384" height="679.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="ZpG-9C-bdL">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells/>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="4H8-Dw-tGR" id="Bh7-kU-FYT"/>
-                                                    <outlet property="delegate" destination="4H8-Dw-tGR" id="AOg-MI-T4b"/>
+                                                    <outlet property="dataSource" destination="4H8-Dw-tGR" id="r37-eb-ysZ"/>
+                                                    <outlet property="delegate" destination="4H8-Dw-tGR" id="GUN-3J-RjC"/>
                                                 </connections>
-                                            </tableView>
+                                            </collectionView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="Violet1"/>
                                 <constraints>
-                                    <constraint firstItem="YX1-AP-IMr" firstAttribute="leading" secondItem="kCt-F0-0lJ" secondAttribute="leading" constant="20" symbolic="YES" id="6cb-3C-LS1"/>
+                                    <constraint firstItem="YX1-AP-IMr" firstAttribute="leading" secondItem="kCt-F0-0lJ" secondAttribute="leading" constant="15" id="Fbg-2T-1Nj"/>
+                                    <constraint firstAttribute="trailing" secondItem="YX1-AP-IMr" secondAttribute="trailing" constant="15" id="Ihh-fO-FKG"/>
                                     <constraint firstItem="bHy-es-KBl" firstAttribute="leading" secondItem="kCt-F0-0lJ" secondAttribute="leading" constant="20" id="RXq-ZZ-MXF"/>
                                     <constraint firstItem="YX1-AP-IMr" firstAttribute="top" secondItem="bHy-es-KBl" secondAttribute="bottom" constant="20" id="WME-Wk-GKz"/>
                                     <constraint firstAttribute="trailing" secondItem="bHy-es-KBl" secondAttribute="trailing" constant="20" id="jcv-EY-UDi"/>
-                                    <constraint firstAttribute="trailing" secondItem="YX1-AP-IMr" secondAttribute="trailing" constant="20" symbolic="YES" id="qvb-9S-U0P"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                        <color key="value" name="gradient1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                        <color key="value" name="gradient2"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a5v-5S-tw3"/>
@@ -157,9 +156,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="BJD-FT-QCV"/>
                     <connections>
+                        <outlet property="collectionView" destination="g8A-lO-JrR" id="bd3-dg-siN"/>
                         <outlet property="imageSlideshow" destination="cis-NQ-yhO" id="uVB-q2-B3C"/>
                         <outlet property="searchBar" destination="bHy-es-KBl" id="DWF-az-c39"/>
-                        <outlet property="tableView" destination="El2-wr-h64" id="yUX-sD-Nal"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8s-Ny-efc" sceneMemberID="firstResponder"/>
@@ -200,13 +199,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi0-xE-KGW">
-                                                <rect key="frame" x="58" y="10" width="326" height="23.5"/>
+                                                <rect key="frame" x="58" y="10" width="326" height="24"/>
                                                 <fontDescription key="fontDescription" name="Rubik-SemiBold" family="Rubik" pointSize="20"/>
                                                 <color key="textColor" name="gradient2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most valued players in the league" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytH-Iv-g4d">
-                                                <rect key="frame" x="58" y="41.5" width="326" height="16.5"/>
+                                                <rect key="frame" x="58" y="42" width="326" height="17"/>
                                                 <fontDescription key="fontDescription" name="Rubik-Regular" family="Rubik" pointSize="14"/>
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -269,6 +268,11 @@
                             <constraint firstAttribute="bottom" secondItem="54z-3C-WOf" secondAttribute="bottom" id="kCJ-m9-Z2x"/>
                             <constraint firstItem="54z-3C-WOf" firstAttribute="top" secondItem="qit-cL-cDF" secondAttribute="top" id="r9K-Q6-Ded"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="54z-3C-WOf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="animationView" destination="J5L-kY-crT" id="v2P-Wf-3N6"/>

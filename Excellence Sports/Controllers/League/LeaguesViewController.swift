@@ -10,9 +10,9 @@ import ImageSlideshow
 
 class LeaguesViewController:BaseViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageSlideshow:ImageSlideshow!
     
     var leagues:[FootballLeague]?
@@ -47,8 +47,8 @@ class LeaguesViewController:BaseViewController {
         searchBar.setImage(UIImage(named: "search"), for: .search, state: .normal)
         setupNavBar()
         NotificationCenter.default.addObserver(self, selector: #selector(refreshSlides), name: Notification.Name("RefreshSlideshow"), object: nil)
-        tableView.register(UINib(nibName: "LeagueTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        tableView.reloadData()
+        collectionView.registerCell(identifier: "LeagueCollectionViewCell")
+        collectionView.reloadData()
     }
     
     @objc func refreshSlides(){
@@ -238,30 +238,33 @@ class LeaguesViewController:BaseViewController {
     }
 }
 
-
-
-
-extension LeaguesViewController:UITableViewDelegate,UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        leagues?.count ?? 0
+extension LeaguesViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+   
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return leagues?.count ?? 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LeagueTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LeagueCollectionViewCell", for: indexPath) as! LeagueCollectionViewCell
         cell.lblLeague.text = leagues?[indexPath.row].name
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
         vc.leagueID = leagues?[indexPath.row].id
         vc.leagueName = leagues?[indexPath.row].name
         self.navigationController?.pushViewController(vc, animated: true)
         clearSearch()
-}
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let w = (UIScreen.main.bounds.width - 50)/2
+        return CGSize(width: w, height: w)
+    }
     
 }
+
 
 
 extension LeaguesViewController:UISearchBarDelegate{
@@ -289,20 +292,20 @@ extension LeaguesViewController:UISearchBarDelegate{
         }
         else{
             leagues = FootballLeague.leagues
-            tableView.reloadData()
+            collectionView.reloadData()
         }
     }
     
     func doSearch(text:String){
         leagues = FootballLeague.leagues?.filter{$0.name?.contains(text) ?? false}
-        tableView.reloadData()
+        collectionView.reloadData()
     }
     
     func clearSearch(){
         searchBar.text = ""
         searchBar.endEditing(true)
         leagues = FootballLeague.leagues
-        tableView.reloadData()
+        collectionView.reloadData()
     }
     
 }
