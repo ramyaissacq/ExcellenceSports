@@ -12,7 +12,6 @@ class LeaguesViewController:BaseViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var imageSlideshow:ImageSlideshow!
     
     var leagues:[FootballLeague]?
@@ -25,13 +24,11 @@ class LeaguesViewController:BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSettings()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         LeaguesViewController.popupFlag = 1
         setupLeftView()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -55,7 +52,6 @@ class LeaguesViewController:BaseViewController {
         if LeaguesViewController.urlDetails?.mapping?.count ?? 0 > 0{
             setupSlideshow()
         }
-       
     }
     
     
@@ -70,8 +66,7 @@ class LeaguesViewController:BaseViewController {
             btn.addTarget(self, action: #selector(specialButtonAction), for: .touchUpInside)
             self.navigationItem.leftBarButtonItems = [UIBarButtonItem(customView: btn)]
         }
-        
-       
+      
     }
     
     @objc func specialButtonAction() {
